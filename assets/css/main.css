@@ -1,0 +1,212 @@
+body {
+  font-family: Playfair Display;
+  color: #adb5bd;
+  margin: 0;
+  background-color: #212529;
+  padding: 0 16px;
+}
+
+.header {
+  background-color: #00a4e6;
+  padding: 40px 20px;
+  text-align: center;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+
+  .header-content {
+    max-width: 700px;
+    margin: 0 auto;
+
+    p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    .btn {
+      margin: 10px 5px;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &.primary {
+        background-color: #007bff;
+        color: white;
+      }
+
+      &.secondary {
+        background-color: #6c757d;
+        color: #f8f9fa;
+      }
+
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+  }
+}
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  padding: 32px;
+
+  .card {
+    background-color: #343a40;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    color: #adb5bd;
+    transition: transform 0.3s, box-shadow 0.3s;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    img {
+      width: 60%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+    }
+
+    h3 {
+      padding: 16px;
+      font-size: 1.25rem;
+    }
+
+    p {
+      padding: 0 16px 16px;
+      font-size: 0.9rem;
+      color: #adb5bd;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .album-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 300px) {
+  .album-grid {
+    grid-template-columns: 1fr;
+  }
+}
+/* Estilos para os botões */
+.button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+  &:hover {
+    background-color: darken(#007bff, 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+  }
+
+  &.primary {
+    background-color: #3e5f70;
+    color: white;
+  }
+
+  &.secondary {
+    background-color: #8d6e63;
+    color: white;
+  }
+}
+
+/* Estilo para o overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+  z-index: 1; /* Coloca o overlay acima do conteúdo principal */
+}
+
+/* Quando o menu está ativo, exibe o overlay */
+.sidebar.active ~ .overlay {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1;
+}
+
+.sidebar {
+  position: fixed;
+  left: -300px;
+  top: 0;
+  width: 300px;
+  height: 100%;
+  background-color: #333;
+  color: white;
+  transition: left 0.4s ease;
+  padding-top: 30px;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 2; /* Coloca o menu acima do overlay */
+}
+
+.sidebar.active {
+  left: 0;
+}
+
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    padding: 0 20px;
+    color: #f5f5f5;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  a {
+    padding: 12px 20px;
+    display: block;
+    color: #ddd;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, padding-left 0.3s;
+
+    &:hover {
+      background-color: #575757;
+      padding-left: 25px; /* Efeito de "deslizar" */
+    }
+  }
+
+
+/* Estilos para o botão de alternância do menu */
+.menu-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  font-size: 26px;
+  background-color: #3e5f70;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, transform 0.2s;
+
+  &:hover {
+    background-color: darken(#3e5f70, 10%);
+    transform: scale(1.05);
+  }
+}

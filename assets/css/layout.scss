@@ -1,0 +1,127 @@
+@import 'variables';
+
+// Estilos Globais
+body {
+  font-family: Arial, sans-serif;
+  color: $text-color;
+  margin: 0;
+  background-color: $background-color;
+}
+
+// Cabeçalho
+.header {
+  padding: $spacing * 2;
+  text-align: center;
+  color: white;
+  .header-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  p {
+    margin: $spacing 0;
+    font-size: 1rem;
+  }
+  .btn {
+    padding: $spacing / 2 $spacing;
+    margin: $spacing / 2;
+    border-radius: 4px;
+    cursor: pointer;
+    &.primary {
+      background-color: $primary-color;
+      color: white;
+      border: none;
+    }
+    &.secondary {
+      background-color: $secondary-color;
+      color: white;
+      border: none;
+    }
+  }
+}
+
+// Grade de Cards
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: $spacing;
+  padding: $spacing * 2;
+
+  .card {
+    background-color: #e0dedb;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    color: #333333;
+    padding-bottom: 16px; // Espaço extra para os botões
+  
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+  
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px 8px 0 0;
+    }
+  
+    h3 {
+      padding: 16px;
+      font-size: 1.25rem;
+    }
+  
+    p {
+      padding: 0 16px;
+      font-size: 0.9rem;
+    }
+  
+    .card-buttons {
+      display: flex;
+      justify-content: flex-start; // Alinha os botões à esquerda
+      gap: 10px;
+      padding: 16px;
+  
+      .button {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background-color 0.3s, transform 0.2s;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  
+        &.primary {
+          background-color: #3e5f70;
+          color: white;
+        }
+  
+        &.secondary {
+          background-color: #8d6e63;
+          color: white;
+        }
+  
+        &:hover {
+          background-color: darken(#3e5f70, 10%); // Escurece a cor no hover
+          transform: translateY(-2px); // Efeito de elevação
+          opacity: 0.9;
+        }
+      }
+    }
+  }
+}  
+// Responsividade
+@media (max-width: 992px) {
+  .album-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .album-grid {
+    grid-template-columns: 1fr;
+  }
+}
